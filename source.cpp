@@ -116,37 +116,6 @@ void FCFS(const vector<info> &V){
 
 				running.push_back(ready.front());
 				ready.erase(ready.begin());
-				//if (!running.empty()){
-				//	cout << "running burst: " << running.front().P.front() << endl;
-				//}
-				//else{
-				//	cout << "running burst: empty" << endl;
-				//}
-				//if (!ready.empty()){
-				//	cout << "ready list: ";
-				//	for (size_t i = 0; i < ready.size(); i++)
-				//	{
-				//		cout << ready[i].P.front() << " ";
-				//	}
-				//	cout << endl;
-				//}
-				//else{
-				//	cout << "ready list: empty" << endl;
-				//}
-				//if (!io.empty()){
-				//	cout << "io burst: ";
-				//	for (size_t i = 0; i < io.size(); i++)
-				//	{
-				//		cout << io[i].P.front() << " ";
-				//	}
-				//	cout << endl;
-				//}
-				//else{
-				//	cout << "io burst: empty" << endl;
-				//}
-				//cout << "run time: " << totalRunT << endl;
-				//cout << "-------------------" << endl;
-
 				running.front().P.front()--;
 
 			}
@@ -177,38 +146,6 @@ void FCFS(const vector<info> &V){
 
 					running.push_back(ready.front());
 					ready.erase(ready.begin());
-
-					//if (!running.empty()){
-					//	cout << "running burst: " << running.front().P.front() << endl;
-					//}
-					//else{
-					//	cout << "running burst: empty" << endl;
-					//}
-					//if (!ready.empty()){
-					//	cout << "ready list: ";
-					//	for (size_t i = 0; i < ready.size(); i++)
-					//	{
-					//		cout << ready[i].P.front() << " ";
-					//	}
-					//	cout << endl;
-					//}
-					//else{
-					//	cout << "ready list: empty" << endl;
-					//}
-					//if (!io.empty()){
-					//	cout << "io burst: ";
-					//	for (size_t i = 0; i < io.size(); i++)
-					//	{
-					//		cout << io[i].P.front() << " ";
-					//	}
-					//	cout << endl;
-					//}
-					//else{
-					//	cout << "io burst: empty" << endl;
-					//}
-					//cout << "run time: " << totalRunT << endl;
-					//cout << "-------------------" << endl;
-
 					running.front().P.front()--;
 
 				}
@@ -321,38 +258,6 @@ void SJF(const vector<info> &V){
 				}
 				running.push_back(ready[smallest(ready)]);
 				ready.erase(ready.begin() + smallest(ready));
-
-				//if (!running.empty()){
-				//	cout << "running burst: " << running.front().P.front() << endl;
-				//}
-				//else{
-				//	cout << "running burst: empty" << endl;
-				//}
-				//if (!ready.empty()){ 
-				//	cout << "ready list: ";
-				//	for (size_t i = 0; i < ready.size(); i++)
-				//	{
-				//		cout << ready[i].P.front() << " ";
-				//	}
-				//	cout << endl;
-				//}
-				//else{
-				//	cout << "ready list: empty" << endl;
-				//}
-				//if (!io.empty()){
-				//	cout << "io burst: ";
-				//	for (size_t i = 0; i < io.size(); i++)
-				//	{
-				//		cout << io[i].P.front() << " ";
-				//	}
-				//	cout << endl;
-				//}
-				//else{
-				//	cout << "io burst: empty" << endl;
-				//}
-				//cout << "run time: " << totalRunT << endl;
-				//cout << "-------------------" << endl;
-
 				running.front().P.front()--;
 
 			}
@@ -379,47 +284,14 @@ void SJF(const vector<info> &V){
 					io.push_back(temp[currindex]);
 					temp[currindex].P.erase(temp[currindex].P.begin());
 				}
-
 				if (!ready.empty()){
 
 					if (ready[smallest(ready)].start == false){ // determines when a process starts, stoes it
 						temp[ready[smallest(ready)].index].start = true;
 						temp[ready[smallest(ready)].index].timeR = totalRunT;
 					}
-
 					running.push_back(ready[smallest(ready)]);
 					ready.erase(ready.begin() + smallest(ready));
-					//if (!running.empty()){
-					//	cout << "running burst: " << running.front().P.front() << endl;
-					//}
-					//else{
-					//	cout << "running burst: empty" << endl;
-					//}
-					//if (!ready.empty()){
-					//	cout << "ready list: ";
-					//	for (size_t i = 0; i < ready.size(); i++)
-					//	{
-					//		cout << ready[i].P.front() << " ";
-					//	}
-					//	cout << endl;
-					//}
-					//else{
-					//	cout << "ready list: empty" << endl;
-					//}
-					//if (!io.empty()){
-					//	cout << "io burst: ";
-					//	for (size_t i = 0; i < io.size(); i++)
-					//	{
-					//		cout << io[i].P.front() << " ";
-					//	}
-					//	cout << endl;
-					//}
-					//else{
-					//	cout << "io burst: empty" << endl;
-					//}
-					//cout << "run time: " << totalRunT << endl;
-					//cout << "-------------------" << endl;
-
 					running.front().P.front()--;
 
 				}
@@ -548,7 +420,6 @@ void MLFQ(const vector<info> &V){
 
 				running.push_back(RR1.front());
 				RR1.erase(RR1.begin());
-				//printList(totalRunT, running, RR1, RR2, FCFSQ, io);
 				running.front().P.front()--;
 				rr1tq++;
 				currentQ = 0;
@@ -559,7 +430,6 @@ void MLFQ(const vector<info> &V){
 				running.push_back(RR2.front());
 				RR2.erase(RR2.begin());
 				rr2tq++;
-				//printList(totalRunT, running, RR1, RR2, FCFSQ, io); // prints values
 				running.front().P.front()--;
 				currentQ = 1;
 
@@ -569,7 +439,6 @@ void MLFQ(const vector<info> &V){
 
 				running.push_back(FCFSQ.front());
 				FCFSQ.erase(FCFSQ.begin());
-				//printList(totalRunT, running, RR1, RR2, FCFSQ, io); // prints values
 				running.front().P.front()--;
 				currentQ = 2;
 			}
@@ -621,7 +490,6 @@ void MLFQ(const vector<info> &V){
 
 						running.push_back(RR1.front());
 						RR1.erase(RR1.begin());
-					//	printList(totalRunT, running, RR1, RR2, FCFSQ, io); // prints to output
 						running.front().P.front()--;
 						rr1tq++;
 						currentQ = 0;
@@ -631,7 +499,6 @@ void MLFQ(const vector<info> &V){
 
 						running.push_back(RR2.front());
 						RR2.erase(RR2.begin());
-						//printList(totalRunT, running, RR1, RR2, FCFSQ, io); // prints to output
 						running.front().P.front()--;
 						rr2tq++;
 						currentQ = 1;
@@ -642,7 +509,6 @@ void MLFQ(const vector<info> &V){
 
 						running.push_back(FCFSQ.front());
 						FCFSQ.erase(FCFSQ.begin());
-						//printList(totalRunT, running, RR1, RR2, FCFSQ, io); // prints to output
 						running.front().P.front()--;
 						currentQ = 2;
 					}
